@@ -1,0 +1,63 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /wallet
+  error:
+    whitelabel:
+      enabled: false
+
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /swagger-ui.html
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+application:
+  name: '@project.artifactId@'
+  description: '@project.description@'
+  version: '@project.version@-${IMAGE_VERSION:local}'
+
+logging:
+  level:
+    root: INFO
+    "[org.springframework]": INFO
+    "[br.com.sota.wallet]": INFO
+  pattern:
+    level: "%mdc"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+
+info:
+  app:
+    name: '@project.artifactId@'
+    description: '@project.description@'
+    version: '@project.version@-${IMAGE_VERSION:local}'
+
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+  spring:
+    datasource:
+      driverClassName: orgh2.Driver
+      url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+      username: sa
+      password: sa
+  h2:
+    console:
+      console.enabled: true
+      path: /h2-console
+      settings.trace: false
+      settings.web-allow-others: false
