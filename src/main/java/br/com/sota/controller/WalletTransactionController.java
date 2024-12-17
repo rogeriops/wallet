@@ -30,7 +30,7 @@ public class WalletTransactionController {
 //    public WalletTransactionService walletTransactionService;
 
     @Autowired
-    public WalletTransactionServiceF walletTransactionService;
+    public WalletTransactionService walletTransactionService;
     @Autowired
     public DepositCommand depositCommand;
     @Autowired
